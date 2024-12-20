@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.zerock</groupId>
+	<groupId>com.legoeat</groupId>
 	<artifactId>controller</artifactId>
-	<name>ex00</name>
+	<name>legoeat</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -13,7 +13,7 @@
 		<org.aspectj-version>1.9.0</org.aspectj-version>
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 		<!-- 현재 진행하고 있는 프로젝트의 절대 위치로 변경해서 사용하셔야만 합니다. -->
-		<project.basedir>D:\leeyh\2404\workspace\spring\ex00</project.basedir>
+		<project.basedir>C:\Users\USER\git\legoeat\legoeat</project.basedir>
 	</properties>
 	<dependencies>
 		<!-- Spring -->

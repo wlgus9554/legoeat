@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
 import com.legoeat.member.vo.LoginVO;
 
 import lombok.extern.log4j.Log4j;
