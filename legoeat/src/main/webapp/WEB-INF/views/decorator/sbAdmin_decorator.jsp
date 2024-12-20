@@ -45,27 +45,32 @@
 	                <li class="nav-item"><a href="/member/loginForm.do" class="menu-link">로그인</a></li>
 	            </ul>
 	        </div>
+	        <!-- Sidebar Toggle -->
+	        <div class="sidebar-toggle">&gt;</div>
         </c:if>
-        <c:if test="${ !empty login }">
-	        <div class="sidebar">
-    <!-- 프로필 섹션 -->
-			    <div class="profile">
-			        <img src="/img/박지현.jpg" alt="프로필 사진">
-			    </div>
-				
-				    <!-- 메뉴 리스트 -->
-			    <ul class="menu-list">
-			        <li class="menu-item"><a href="/dashboard" class="menu-link">대시보드</a></li>
-			        <li class="menu-item"><a href="/profile" class="menu-link">프로필</a></li>
-			        <li class="menu-item"><a href="/settings" class="menu-link">설정</a></li>
-			        <li class="menu-item"><a href="/member/logout.do" class="menu-link">로그아웃</a></li>
-			    </ul>
-			</div>
-        </c:if>
+        <c:if test="${!empty login}">
+		    <div class="sidebar">
+		        <!-- 프로필 섹션 -->
+		        <div class="profile">
+		            <img src="${login.photo != null ? login.photo : '/img/default.png'}" alt="프로필 사진">
+		            
+		            <!-- 닉네임 표시 -->
+    				<p class="nickname">${login.nickName}님</p>
+		        </div>
+		
+		        <!-- 메뉴 리스트 -->
+		        <ul class="menu-list">
+		            <li class="menu-item"><a href="/dashboard" class="menu-link">대시보드</a></li>
+		            <li class="menu-item"><a href="/profile" class="menu-link">프로필</a></li>
+		            <li class="menu-item"><a href="/settings" class="menu-link">설정</a></li>
+		            <li class="menu-item"><a href="/member/logout.do" class="menu-link">로그아웃</a></li>
+		        </ul>
+		    </div>
+		    <!-- Sidebar Toggle -->
+		    <div class="sidebar-toggle">&gt;</div>
+		</c:if>
 
-        <!-- Sidebar Toggle -->
-        <div class="sidebar-toggle">&gt;</div>
-
+        
         <!-- Main Content -->
         <main class="content">
             <!-- 이 부분에 JSP가 렌더링됩니다 -->
@@ -82,19 +87,25 @@
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const sidebar = document.querySelector(".sidebar");
-            const toggleButton = document.querySelector(".sidebar-toggle");
-            const content = document.querySelector(".content");
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidebar = document.querySelector(".sidebar");
+        const toggleButton = document.querySelector(".sidebar-toggle");
+        const content = document.querySelector(".content");
 
+        if (toggleButton && sidebar) {
             toggleButton.addEventListener("click", function () {
                 sidebar.classList.toggle("closed");
                 content.classList.toggle("sidebar-closed");
 
-                toggleButton.innerHTML = sidebar.classList.contains("closed") ? "&lt;" : "&gt;";
+                // 버튼 화살표 방향 변경
+                toggleButton.innerHTML = sidebar.classList.contains("closed") ? "&gt;" : "&lt;";
             });
-        });
-    </script>
+        } else {
+            console.error("Sidebar or toggle button element not found!");
+        }
+    });
+</script>
+
 </body>
 
 </html>
